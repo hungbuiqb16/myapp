@@ -1,0 +1,12 @@
+<% clubs.forEach((club) =>{%>
+<tr>       
+  <td><%- club.name%></td>
+  <td><img src="uploads/<%- club.logo%>" class="logo-club" alt=""></td>
+  <td><%- club.stadium%></td>
+  <td><%- club.coach%></td>
+  <td>
+     <button class="btn btn-info" type="button" onclick="editClub('<%- club._id%>')" data-toggle="modal"  data-target="#modal-edit"><i class="fas fa-edit"></i></button>            
+    <button class="btn btn-danger" type="button" onclick="deleteClub('<%- club._id%>')" data-toggle="modal"  data-target="#modal-del"><i class="fas fa-trash-alt"></i></button>
+</td>
+</tr>
+ <% })%>

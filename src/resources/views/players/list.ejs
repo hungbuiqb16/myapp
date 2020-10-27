@@ -1,0 +1,115 @@
+<%- contentFor('list') %>  
+  <div class="card">
+    <div class="card-body">
+
+        <nav class="navbar  justify-content-between">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClubModal">
+          <i class="fas fa-plus"></i> Add player
+        </button>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" id="search" placeholder="Search...">
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+            </form>
+        </nav>   
+    </div>
+
+    <div class="card-header">
+      <h3 class="card-title">List player</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Image</th>
+          <th>Player name</th>
+          <th>Birthday</th>
+          <th>Nation</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="clubs-table">
+        <tr>       
+          <td></td>
+          <td><img src="" class="logo-club" alt=""></td>
+          <td></td>
+          <td></td>
+          <td>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-sm"><i class="fas fa-edit"></i></button>
+            <button type="button" class="btn btn-danger"  data-target="#modal-del" onclick=""><i class="fas fa-trash-alt"></i></button>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+      <!-- Modal Add -->
+    <div class="modal fade" id="addClubModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add player</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form role="form" id="form-add-club" action="/players" method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Club name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter the club name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Stadium</label>
+                    <input type="text" class="form-control" id="stadium" name="stadium" placeholder="Enter the stadium name">
+                  </div>      
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Coach name</label>
+                    <input type="text" class="form-control" id="coach" name="coach" placeholder="Enter the coach name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Logo</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="logo" name="logo">
+                        <label class="custom-file-label" for="exampleInputFile">Choose logo</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>       
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" id="add-button" class="btn btn-primary">Save</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal delete -->
+    <div class="modal fade" id="modal-del">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">DELETE CONFIRM</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are You Sure Want To Delete?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="submit" class="btn btn-success" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-danger" id="btn-delete">Yes, Delete</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>

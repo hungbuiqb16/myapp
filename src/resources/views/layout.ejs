@@ -1,0 +1,38 @@
+<%- include('elements/header')%>
+<%- include('elements/sidebar')%>
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Blank Page</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Blank Page</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+        <div class="d-flex justify-content-center align-items-center">
+            <% if(msg.length > 0) {%>
+             <div class="col-sm-4 alert alert-success text-center" id="message-alert">
+                  <button type="button" class="close" data-dismiss="alert">x</button>
+                  <strong><i class="fas fa-info-circle"></i></strong> <span class="message"><%= msg %></span>
+            </div>
+            <% }%>         
+        </div>
+
+       
+    <!-- Main content -->
+    <section class="content">
+
+     <%-defineContent('list')%>
+     <%-defineContent('add') %>  
+
+    </section>
+<!-- /.content -->
+</div>
+<%- include('elements/footer')%>

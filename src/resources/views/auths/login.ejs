@@ -1,0 +1,71 @@
+<%- contentFor('register') %>
+    <% if(msg.length > 0) { %>
+        <div class="alert alert-success text-center" id="message-alert">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          <strong><i class="fas fa-info-circle"></i></strong> <span class="message"><%= msg %></span>
+        </div>
+    <%}%>
+        <% if(err.length > 0) { %>
+        <div class="alert alert-danger text-center" id="message-alert">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          <strong><i class="fas fa-info-circle"></i></strong> <span class="message"><%= err %></span>
+        </div>
+    <%}%>
+
+ <div class="card">
+<div class="card-body login-card-body">
+  <p class="login-box-msg">Sign in to start your session</p>
+
+  <form action="/login" method="post">
+    <div class="input-group mb-3">
+      <input type="email" class="form-control" name="email" placeholder="Email">
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-envelope"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <input type="password" class="form-control" name="password" placeholder="Password">
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-lock"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <div class="icheck-primary">
+          <input type="checkbox" id="remember" name="remember_me" value="1">
+          <label for="remember">
+            Remember Me
+          </label>
+        </div>
+      </div>
+      <!-- /.col -->
+      <div class="col-4">
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      </div>
+      <!-- /.col -->
+    </div>
+  </form>
+
+  <div class="social-auth-links text-center mb-3">
+    <p>- OR -</p>
+    <a href="/auth/facebook" class="btn btn-block btn-primary">
+      <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+    </a>
+    <a href="/auth/google" class="btn btn-block btn-danger">
+      <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+    </a>
+  </div>
+  <!-- /.social-auth-links -->
+
+  <p class="mb-1">
+    <a href="/users/password/new">I forgot my password</a>
+  </p>
+  <p class="mb-0">
+    <a href="/register" class="text-center">Register a new membership</a>
+  </p>
+</div>
+

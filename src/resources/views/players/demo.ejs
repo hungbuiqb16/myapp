@@ -1,0 +1,26 @@
+<%- contentFor('add') %>
+<% if(typeof errMessage != 'undefined') {%>
+	<%  errMessage.forEach((err)=> {%>
+        <%= err.msg %>
+	<%})%>
+<%} %>
+<form action="/players" method="post">
+	<div>
+	<label for="playerName">Player name</label>
+    <input type="text" name="name" value="<% if(users.name) {%><%= users.name %> <%} %>">		
+	</div>	
+	<div>
+	<label for="playerName">Nation</label>
+    <input type="text" name="nation" value="<% if(users.nation) {%><%= users.nation %> <%} %>">		
+	</div>	
+	<div>
+	<label for="playerName">Birthday</label>
+    <input type="date" name="birthday">		
+	</div>
+	<div>
+	<label for="playerName">Image</label>
+    <input type="file" name="avatar">		
+	</div>
+  <input type="submit" value="send">
+</form>
+
